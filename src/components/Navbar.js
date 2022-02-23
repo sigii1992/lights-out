@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -20,7 +21,15 @@ const useStyles = makeStyles({
 
 export default function Navbar() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const navigate = useNavigate();
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if(value === 0) navigate("/")
+    else if(value === 1) navigate("movies")
+    else if(value === 2) navigate("tv-series")
+    else if(value === 3) navigate("search")
+  }, [value, navigate]);
 
   return (
     <BottomNavigation
