@@ -24,6 +24,10 @@ export default function Navbar() {
   const navigate = useNavigate();
   const [value, setValue] = useState(0);
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+  }
+
   useEffect(() => {
     if(value === 0) navigate("/")
     else if(value === 1) navigate("movies")
@@ -34,9 +38,7 @@ export default function Navbar() {
   return (
     <BottomNavigation
       value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-      }}
+      onChange={handleChange}
       showLabels
       className={classes.root}
     >
