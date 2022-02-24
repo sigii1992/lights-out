@@ -1,0 +1,41 @@
+.card {
+  width: 200px;
+  padding: 5px;
+  margin: 5px 0;
+  font-size: 15px;
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #130f40;
+  border-radius: 10px;
+}
+
+.card:hover {
+  background-color: #04619f;
+  color: black
+}
+
+@media (max-width: 550px) {
+  .card {
+    width: 46%;
+  }
+}   
+
+.card--image {
+  border-radius: 10px;
+}
+
+.card--title {
+  width: 100%;
+  text-align: center;
+  font-size: 17px;
+  padding: 8px 0;
+}
+
+.card--type--date {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2px;
+  padding-bottom: 3px;
+}

@@ -1,3 +1,7 @@
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background-color: #0d324d;
@@ -12,5 +16,22 @@ body {
 @media(max-width:800px) {
   .App {
     padding-top: 110px;
+  }
+}
+
+.pageTitle {
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: lighter;
+  font-size: 2.5vw;
+  padding: 5px;
+  border-radius: 50px;
+}
+
+@media (max-width: 1000px) {
+  .pageTitle {
+    font-size: 4vw;
   }
 }

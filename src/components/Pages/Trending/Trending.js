@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from '../../Card/Card'
+import './Trending.css'
 
 const Trending = () => {
   const [trendingContent, setTrendingContent] = useState([])
