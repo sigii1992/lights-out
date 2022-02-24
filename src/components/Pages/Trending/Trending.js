@@ -13,7 +13,7 @@ const Trending = () => {
     .then(data => setTrendingContent(data.results))
   },[page])
 
-  console.log(trendingContent)
+  // console.log(trendingContent)
 
   const cards = trendingContent.map(card=>{
     return <Card 
