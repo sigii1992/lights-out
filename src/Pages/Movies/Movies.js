@@ -1,12 +1,15 @@
-import Card from '../../Card/Card'
+import Card from '../../components/Card/Card'
 import { useState, useEffect } from "react";
 import './Movies.css'
-import CustomPagination from '../../Header/Pagination/CustomPagination';
+import CustomPagination from '../../components/Pagination/CustomPagination';
+import Genres from '../../components/Genres'
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [numOfPages, setNumOfPages] = useState();
+  const [selectedGenres, setSelectedGenres] = useState([])
+  const [genres, setGenres] = useState([])
 
   useEffect(() => {
     let mounted = true;
@@ -20,7 +23,6 @@ const Movies = () => {
     return () => mounted = false;
   },[page])
  
-
   const cards = movies?.map(card=>{
     return <Card
       key={card.id}
@@ -32,8 +34,16 @@ const Movies = () => {
   return (
     <div>
       <h1 className="pageTitle">Movies</h1>
+      <Genres 
+        type="movie"
+        selectedGenres={selectedGenres}
+        setSelectedGenres={setSelectedGenres}
+        genres={genres}
+        setGenres={setGenres}
+        setPage={setPage}
+      />
       <div className="movies">
-        {movies && cards}
+        {cards}
       </div>
       {numOfPages > 1 && 
       (<CustomPagination setPage={setPage} numOfPages={numOfPages > 500 ? 500 : numOfPages} />)}

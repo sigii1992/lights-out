@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import Card from '../../Card/Card'
-import CustomPagination from '../../Header/Pagination/CustomPagination';
+import Card from '../../components/Card/Card'
+import CustomPagination from '../../components/Pagination/CustomPagination';
 import './Trending.css'
 
 const Trending = () => {
@@ -15,7 +15,7 @@ const Trending = () => {
 
   // console.log(trendingContent)
 
-  const cards = trendingContent.map(card=>{
+  const cards = trendingContent?.map(card=>{
     return <Card 
       key={card.id}
       {...card}
@@ -26,7 +26,7 @@ const Trending = () => {
     <div>
       <h1 className="pageTitle">Trending</h1>
       <div className="trending">
-        {trendingContent && cards}
+        {cards}
       </div>
       <CustomPagination setPage={setPage}/>
     </div>
