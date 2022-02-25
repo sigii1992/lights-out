@@ -18,10 +18,10 @@ const Movies = () => {
         setNumOfPages(data.total_pages)}
       })
     return () => mounted = false;
-  },[])
+  },[page])
  
 
-  const cards = movies.map(card=>{
+  const cards = movies?.map(card=>{
     return <Card
       key={card.id}
       media_type="movie"
@@ -36,7 +36,7 @@ const Movies = () => {
         {movies && cards}
       </div>
       {numOfPages > 1 && 
-      (<CustomPagination setPage={setPage} numOfPages={numOfPages} />)}
+      (<CustomPagination setPage={setPage} numOfPages={numOfPages > 500 ? 500 : numOfPages} />)}
     </div>
   )
 }
