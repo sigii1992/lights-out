@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import './Movies.css'
 import CustomPagination from '../../components/Pagination/CustomPagination';
 import Genres from '../../components/Genres'
+import useGenre from '../../hooks/useGenre';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -10,10 +11,11 @@ const Movies = () => {
   const [numOfPages, setNumOfPages] = useState();
   const [selectedGenres, setSelectedGenres] = useState([])
   const [genres, setGenres] = useState([])
+  const genreforURL=useGenre(selectedGenres)
 
   useEffect(() => {
     let mounted = true;
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`)
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`)
     .then(response => response.json())
     .then(data => {
       if(mounted) {
@@ -21,7 +23,7 @@ const Movies = () => {
         setNumOfPages(data.total_pages)}
       })
     return () => mounted = false;
-  },[page])
+  },[page, genreforURL])
  
   const cards = movies?.map(card=>{
     return <Card

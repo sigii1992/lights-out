@@ -24,9 +24,8 @@ const Genres = ({type, genres, setGenres, selectedGenres, setSelectedGenres, set
         setGenres(data.genres)}
       })
     return () => mounted = false;
-  },[type])
-
-  console.log(genres)
+    // eslint-disable-next-line
+  },[])
 
   const selectedChip = selectedGenres?.map(genre => {
     return <Chip 
@@ -47,7 +46,6 @@ const Genres = ({type, genres, setGenres, selectedGenres, setSelectedGenres, set
       clickable
       color="primary"
       onClick={() => handleAdd(genre)}
-      
     />
   })
 
