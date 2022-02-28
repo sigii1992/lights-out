@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Navbar() {
+const Navbar = () =>  {
   const classes = useStyles();
   const navigate = useNavigate();
   const [value, setValue] = useState(0);
@@ -61,3 +61,5 @@ export default function Navbar() {
     </BottomNavigation>
   );
 }
+
+export default Navbar;
