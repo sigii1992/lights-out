@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, createTheme, TextField, ThemeProvider } from "@material-ui/core";
+import { Button, createTheme, Tab, Tabs, TextField, ThemeProvider } from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
 
 const darkTheme = createTheme({
@@ -13,6 +13,10 @@ const darkTheme = createTheme({
 
 const Search = () => {
   const [type, setType] = useState(0);
+
+  const handleChange = (event, newValue) => {
+    setType(newValue);
+  };
 
   return (
     <div>
@@ -29,6 +33,15 @@ const Search = () => {
             <SearchIcon/>
           </Button>
         </div>
+        <Tabs 
+          value={type} 
+          indicatorColor="primary" 
+          textColor="primary"
+          onChange={handleChange}
+        >
+          <Tab label="Search Movies" style={{ width: "50%" }} />
+          <Tab label="Search TV Series" style={{ width: "50%" }} />
+        </Tabs>
       </ThemeProvider>
     </div>
   )
