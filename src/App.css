@@ -35,3 +35,9 @@ body {
     font-size: 4vw;
   }
 }
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

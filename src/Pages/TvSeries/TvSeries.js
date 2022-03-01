@@ -1,6 +1,5 @@
 import Card from '../../components/Card/Card'
 import { useState, useEffect } from "react";
-import './TvSeries.css'
 import CustomPagination from '../../components/Pagination/CustomPagination';
 import Genres from '../../components/Genres'
 import useGenre from '../../hooks/useGenre';
@@ -44,7 +43,7 @@ const TvSeries = () => {
         setGenres={setGenres}
         setPage={setPage}
       />
-      <div className="tvSeries">
+      <div className="content">
         {cards}
       </div>
       {numOfPages > 1 && 

@@ -80,7 +80,7 @@ const Search = () => {
           <Tab label="Search TV Series" style={{ width: "50%" }} />
         </Tabs>
       </ThemeProvider>
-      <div className="movies">
+      <div className="content">
         {cards}
         {!searchText &&  <h2>Enter the name of the Movie or TV serie and click the Search button! </h2> }
         {searchText && content.length === 0 && (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)}
