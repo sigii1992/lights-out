@@ -5,6 +5,8 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import { img_500, unavailable, unavailableLandscape } from '../../config/config';
+import { Button } from "@material-ui/core";
+import YouTubeIcon from "@material-ui/icons/YouTube";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -28,6 +30,7 @@ const ContentModal = ( {children, media_type, id} ) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [content, setContent] = useState();
+  const [video, setVideo] = useState();
 
   const handleOpen = () => {
     setOpen(true);
@@ -43,11 +46,20 @@ const ContentModal = ( {children, media_type, id} ) => {
     );
 
     setContent(data);
-    console.log(data);
+  };
+
+  const fetchVideo = async () => {
+    const { data } = await axios.get(
+      `https://api.themoviedb.org/3/${media_type}/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+    );
+
+    setVideo(data.results[0]?.key);
   };
 
   useEffect(() => {
-    fetchData()
+    fetchData();
+    fetchVideo();
+    // eslint-disable-next-line
   }, [])
 
   return (
@@ -88,6 +100,16 @@ const ContentModal = ( {children, media_type, id} ) => {
                 <span className="modal-description">
                   {content.overview}
                 </span>
+
+                <Button
+                    variant="contained"
+                    startIcon={<YouTubeIcon />}
+                    color="secondary"
+                    target="__blank"
+                    href={`https://www.youtube.com/watch?v=${video}`}
+                  >
+                    Watch the Trailer
+                </Button>
               </div>
             </div>
           </div>)}
