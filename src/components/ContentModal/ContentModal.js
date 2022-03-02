@@ -4,7 +4,7 @@ import axios from 'axios'
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import { img_500, unavailable } from '../../config/config';
+import { img_500, unavailable, unavailableLandscape } from '../../config/config';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -68,11 +68,29 @@ const ContentModal = ( {children, media_type, id} ) => {
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
+        {content && (<div className={classes.paper}>
             <div className='content-modal'>
-              <img src={content.poster_path?`${img_500}/${content.poster_path}` : unavailable} />
+              {/* <img 
+                alt={content.name || content.title}
+                className="modal-img-portrait" 
+                src={content.poster_path?`${img_500}/${content.poster_path}` : unavailable} 
+              /> */}
+              <img 
+                alt={content.name || content.title}
+                className="modal-img-landscape" 
+                src={content.backdrop_path?`${img_500}/${content.backdrop_path}` : unavailableLandscape} 
+              />
+              <div className="modal-about">
+                <span className='modal-title'>
+                  {content.name || content.title} ({(content.first_air_date || content.release_date || "-----").substring(0, 4)})
+                </span>
+                {content.tagline && (<i className="tagline">{content.tagline}</i>)}
+                <span className="modal-description">
+                  {content.overview}
+                </span>
+              </div>
             </div>
-          </div>
+          </div>)}
         </Fade>
       </Modal>
     </div>
