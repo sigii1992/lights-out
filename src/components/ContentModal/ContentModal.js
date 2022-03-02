@@ -7,6 +7,7 @@ import Fade from '@material-ui/core/Fade';
 import { img_500, unavailable, unavailableLandscape } from '../../config/config';
 import { Button } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
+import './ContentModal.css'
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -82,11 +83,11 @@ const ContentModal = ( {children, media_type, id} ) => {
         <Fade in={open}>
         {content && (<div className={classes.paper}>
             <div className='content-modal'>
-              {/* <img 
+              <img 
                 alt={content.name || content.title}
                 className="modal-img-portrait" 
                 src={content.poster_path?`${img_500}/${content.poster_path}` : unavailable} 
-              /> */}
+              />
               <img 
                 alt={content.name || content.title}
                 className="modal-img-landscape" 
@@ -96,12 +97,13 @@ const ContentModal = ( {children, media_type, id} ) => {
                 <span className='modal-title'>
                   {content.name || content.title} ({(content.first_air_date || content.release_date || "-----").substring(0, 4)})
                 </span>
-                {content.tagline && (<i className="tagline">{content.tagline}</i>)}
+                {content.tagline && (<i className="modal-tagline">{content.tagline}</i>)}
                 <span className="modal-description">
                   {content.overview}
                 </span>
 
                 <Button
+                    style={{ fontFamily: 'Lato, sans-serif'}}
                     variant="contained"
                     startIcon={<YouTubeIcon />}
                     color="secondary"
