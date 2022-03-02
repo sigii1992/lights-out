@@ -57,7 +57,7 @@ const Search = () => {
   return (
     <div>
       <ThemeProvider theme={darkTheme} >
-        <div style={{ display: "flex", margin: "15px 0"  }}>
+        <div style={{ display: "flex", margin: "15px 0" }}>
           <TextField
             style={{ flex: 1 }}
             className="searchBox"
@@ -74,6 +74,7 @@ const Search = () => {
           indicatorColor="primary" 
           textColor="primary"
           onChange={handleChange}
+          style={{ paddingBottom: "10px" }}
           centered
         >
           <Tab label="Search Movies" style={{ width: "50%" }} />
@@ -82,7 +83,7 @@ const Search = () => {
       </ThemeProvider>
       <div className="content">
         {cards}
-        {!searchText &&  <h2>Enter the name of the Movie or TV serie and click the Search button! </h2> }
+        {!searchText &&  <p style={{ fontSize: "25px", fontFamily: 'Lato, sans-serif' }}>Enter the name of the Movie or TV serie and click the Search button! </p> }
         {searchText && content.length === 0 && (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)}
       </div>
       {numOfPages > 1 && 

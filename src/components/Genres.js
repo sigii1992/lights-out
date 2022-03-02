@@ -50,7 +50,7 @@ const Genres = ({type, genres, setGenres, selectedGenres, setSelectedGenres, set
   })
 
   return (
-    <div style={{ padding: "6px 0" }}>
+    <div style={{ padding: "6px 20px" }}>
       {selectedChip}
       {genreChip}
     </div>

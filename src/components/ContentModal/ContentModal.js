@@ -64,10 +64,10 @@ const ContentModal = ( {children, media_type, id} ) => {
   }, [])
 
   return (
-    <div>
-      <button type="button" className="card" onClick={handleOpen}>
+    <>
+      <div className="card" onClick={handleOpen}>
         {children}
-      </button>
+      </div>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -117,7 +117,7 @@ const ContentModal = ( {children, media_type, id} ) => {
           </div>)}
         </Fade>
       </Modal>
-    </div>
+    </>
   );
 }
 
