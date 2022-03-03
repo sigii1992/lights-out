@@ -40,4 +40,21 @@ Users can click on any of the cards and the Modal is being displayed with:
 3. run `npm i` to install all the dependancies
 3. run `npm start` to open the app
 
+## Screeshots:
+`Trending Page `
+![trending](https://user-images.githubusercontent.com/81166702/156580580-d6ca03d9-245c-4537-815c-c37e1522a296.png)
+
+`Movies Page`
+![movies](https://user-images.githubusercontent.com/81166702/156580572-29e39d70-1621-445a-9679-ddcfb026c3d4.png)
+
+`TV Series Page`
+![tv](https://user-images.githubusercontent.com/81166702/156580581-ad93518f-7ab0-452a-999a-48f1adced885.png)
+
+`Search Page`
+![search1](https://user-images.githubusercontent.com/81166702/156580578-d52ac8d4-c435-4bfb-af2e-d2b2bbe63469.png)
+![search2](https://user-images.githubusercontent.com/81166702/156580579-07067393-3b35-43ed-bb02-3e397fd2423d.png)
+
+`Modal`
+![modulo](https://user-images.githubusercontent.com/81166702/156581243-01fd030c-c5b8-49b9-ae15-1634043cc490.png)
+
 
